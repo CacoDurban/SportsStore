@@ -1,0 +1,27 @@
+﻿@model SportsStore.WebUI.Models.CartIndexViewModel
+
+@{
+    ViewBag.Title = "Sports: Your Cart";
+}
+<h2>Your Cart</h2>
+@foreach (var line in Model.Cart.Lines){
+      
+ 
+    
+    <div>Cantidad</div>
+    @Html.TextBoxFor(x => line.Quantity)
+    <div>Nombre</div>
+    @line.Product.Name
+    <div>Precio</div>
+    @line.Product.Price.ToString("c")
+    <div>SubTotal</div>
+    <div>@((line.Quantity * line.Product.Price).ToString("c"))</div>
+  
+    using(Html.BeginForm("RemoveFromCart", "Cart")){
+         @Html.Hidden("ProductId", line.Product.ProductID)
+         @Html.HiddenFor(x => x.ReturnUrl)
+        <input type="submit" value="remove" />
+       }
+     }
+    <h3>Total: @Model.Cart.ComputeTotalValue()</h3>
+    <a href="@Model.ReturnUrl">Continue</a>

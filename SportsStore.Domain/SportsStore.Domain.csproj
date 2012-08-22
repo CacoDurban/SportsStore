@@ -55,6 +55,7 @@
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Database\EFDbContext.cs" />
     <Compile Include="Database\EFProductRepository.cs" />
+    <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

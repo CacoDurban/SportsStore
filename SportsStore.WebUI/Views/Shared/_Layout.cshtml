@@ -10,6 +10,11 @@
     <div id="header">
         <div class="title">SPORTS STORE</div>
     </div>
+
+     <div id="cart">
+     @{ Html.RenderAction("Summary", "Cart"); }
+    </div>
+
     <div id="categories">
     @{ Html.RenderAction("Menu", "Nav"); }
     </div>
