@@ -19,7 +19,7 @@ namespace SportsStore.WebUI.Controllers
         }
 
 
-        public ViewResult Index(Cart cart, string returnUrl)
+        public ViewResult Index(Cart cart, string returnUrl = "/")
         {
             return View(new CartIndexViewModel
             {
@@ -55,6 +55,29 @@ namespace SportsStore.WebUI.Controllers
                 cart.RemoveLine(product);
 
             return RedirectToAction("Index", new { returnUrl });
+        }
+
+        public ViewResult CheckOut()
+        {
+            return View(new ShippingDetails());
+        }
+
+        [HttpPost]
+        public ViewResult CheckOut(Cart cart, ShippingDetails Details)
+        {
+
+            if (!cart.Lines.Any())
+            {
+                ModelState.AddModelError("", "Cart is empty");
+            }
+            return View();
+        }
+
+
+        public RedirectToRouteResult Clear(Cart cart)
+        {
+            cart.Clear();
+            return RedirectToAction("List", "Product");
         }
 
 

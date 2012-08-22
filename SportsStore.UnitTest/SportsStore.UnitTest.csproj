@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartControllerTest.cs" />
     <Compile Include="NavControllerTest.cs" />
     <Compile Include="PageLinkHelperTest.cs" />
     <Compile Include="ProductRepositoryTest.cs" />

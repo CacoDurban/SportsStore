@@ -4,3 +4,11 @@ Your Cart:
 
 Productos : @Model.Lines.Count()
 Total: @Model.ComputeTotalValue()
+
+@if (Model.Lines.Any())
+{
+    @Html.ActionLink("CheckOut", "CheckOut")    
+    @Html.ActionLink("Clear", "Clear")
+}
+
+

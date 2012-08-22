@@ -1,0 +1,32 @@
+﻿@model SportsStore.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2>CheckOut</h2>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary()
+
+    <div>Name: @Html.EditorFor(X => X.Name)</div>
+    
+    <div>Address</div>
+    <div>Line1: @Html.EditorFor(X => X.Line1)</div>
+    <div>Line2: @Html.EditorFor(X => X.Line2)</div>    
+    <div>Line3: @Html.EditorFor(X => X.Line3)</div>    
+    <div>City: @Html.EditorFor(X => X.City)</div>
+    <div>State: @Html.EditorFor(X => X.State)</div>
+    <div>Zip: @Html.EditorFor(X => X.Zip)</div>
+    <div>Country: @Html.EditorFor(X => X.Country)</div>
+
+    <div>Gif: @Html.EditorFor(X => X.GifWrap)</div>
+
+    <input type="submit" value="Enviar" />
+    
+}
+    
+    
+
