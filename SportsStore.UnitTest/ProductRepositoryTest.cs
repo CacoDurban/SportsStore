@@ -8,6 +8,7 @@ using Moq;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
 using SportsStore.WebUI.Controllers;
+using SportsStore.WebUI.Models;
 
 namespace SportsStore.UnitTest
 {
@@ -28,15 +29,41 @@ namespace SportsStore.UnitTest
 
            ProductController controller = new ProductController(mock.Object);
 
-           IEnumerable<Product> result = controller.List(2).Model as IEnumerable<Product>;
+          var result = controller.List(null, 2).Model as ProductListViewModel;
 
 
-           Product[] ProductArray = result.ToArray();
+           Product[] ProductArray = result.Products.ToArray();
            Assert.IsTrue(ProductArray.Length == 2);
            Assert.AreEqual(ProductArray[0].Name, "P4");
            Assert.AreEqual(ProductArray[1].Name, "P5");
                
 
        }
+
+       [Test]
+       public void Can_paginate_with_Category()
+       {
+           Mock<IProductRepository> mock = new Mock<IProductRepository>();
+
+           mock.Setup(m => m.Products).Returns(new Product[] { 
+               new Product{ ProductID = 1, Name = "P1", Category = "c1"},
+               new Product{ ProductID = 2, Name = "P2", Category = "c1"},
+               new Product{ ProductID = 3, Name = "P3", Category = "c2"},
+               new Product{ ProductID = 4, Name = "P4", Category = "c3"},
+               new Product{ ProductID = 5, Name = "P5"}}.AsQueryable());
+
+           ProductController controller = new ProductController(mock.Object);
+
+           var result = controller.List("c2").Model as ProductListViewModel;
+
+
+           Product[] ProductArray = result.Products.ToArray();
+           Assert.IsTrue(ProductArray.Length == 1);
+           Assert.AreEqual(ProductArray[0].Name, "P3");
+           
+
+
+       }
+
     }
 }
