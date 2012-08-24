@@ -52,10 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CartControllerTest.cs" />
-    <Compile Include="NavControllerTest.cs" />
-    <Compile Include="PageLinkHelperTest.cs" />
-    <Compile Include="ProductRepositoryTest.cs" />
+    <Compile Include="Controllers\AdminControllerTest.cs" />
+    <Compile Include="Controllers\CartControllerTest.cs" />
+    <Compile Include="Controllers\NavControllerTest.cs" />
+    <Compile Include="HtmlHelpers\PageLinkHelperTest.cs" />
+    <Compile Include="Controllers\ProductControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -64,8 +64,7 @@ namespace SportsStore.WebUI.Controllers
 
         [HttpPost]
         public ViewResult CheckOut(Cart cart, ShippingDetails Details)
-        {
-
+        {   
             if (!cart.Lines.Any())
             {
                 ModelState.AddModelError("", "Cart is empty");
