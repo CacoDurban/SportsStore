@@ -44,7 +44,6 @@ namespace SportsStore.WebUI.Controllers
                     product.ImageMimeType = Image.ContentType;
                     product.ImageData = new byte[Image.ContentLength];
                     Image.InputStream.Read(product.ImageData, 0, Image.ContentLength);
-
                 }
 
                 repository.SaveProduct(product);

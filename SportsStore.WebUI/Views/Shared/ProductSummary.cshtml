@@ -3,7 +3,10 @@
  <div class='item'>
         <h3>@Model.Name</h3>
         @Model.Description
-
+        if (@Model.ImageData != null)
+        {
+            <img src="@Url.Action("GetImage", "Product", new { Model.ProductID})" width="50px" height="50px" />
+        }
         @using (Html.BeginForm("AddToCart", "Cart"))
         {
             @Html.HiddenFor(x => x.ProductID)    
