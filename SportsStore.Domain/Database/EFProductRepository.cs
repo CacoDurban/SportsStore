@@ -24,6 +24,8 @@ namespace SportsStore.Domain.Database
             if (product.ProductID == 0)
                 context.Products.Add(product);
 
+            context.Entry<Product>(product).State = System.Data.EntityState.Modified;
+
             context.SaveChanges();
         }
 

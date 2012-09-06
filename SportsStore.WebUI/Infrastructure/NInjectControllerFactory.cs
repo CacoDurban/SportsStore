@@ -8,6 +8,7 @@ using Moq;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
 using SportsStore.Domain.Database;
+using SportsStore.Domain.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -38,6 +39,7 @@ namespace SportsStore.WebUI.Infrastructure
 
 
             ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
+            ninjectKernel.Bind<IAutProvider>().To<FormsAuthProvider>();
         }
 
     }

@@ -81,7 +81,7 @@ namespace SportsStore.UnitTest.Controllers
 
             Product product = new Product() { Name = "Test" };
 
-            ActionResult result = controller.Edit(product);
+            ActionResult result = controller.Edit(product,null);
 
             mock.Verify(m => m.SaveProduct(product));
 
@@ -99,7 +99,7 @@ namespace SportsStore.UnitTest.Controllers
 
             controller.ModelState.AddModelError("error", "error");
 
-            ActionResult result = controller.Edit(product);
+            ActionResult result = controller.Edit(product,  null);
 
             mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
 
