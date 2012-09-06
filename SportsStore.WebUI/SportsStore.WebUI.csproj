@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NInjectControllerFactory.cs" />
+    <Compile Include="Infrastructure\NinjectDependecyResolver.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\LogOnViewModel.cs" />
     <Compile Include="Models\PageInfo.cs" />

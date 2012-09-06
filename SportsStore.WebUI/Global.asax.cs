@@ -73,7 +73,10 @@ namespace SportsStore.WebUI
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            ControllerBuilder.Current.SetControllerFactory(new NInjectControllerFactory());
+            //ControllerBuilder.Current.SetControllerFactory(new NInjectControllerFactory());
+
+            DependencyResolver.SetResolver(new NinjectDependecyResolver());
+            
             ModelBinders.Binders.Add(typeof(SportsStore.Domain.Entities.Cart), new CartModelBinder());
         }
     }
